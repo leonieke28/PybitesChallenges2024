@@ -1,0 +1,26 @@
+<p>Implement the following <code>class</code> structure: <code>print(Child.__mro__)</code>:</p>
+<pre>(&lt;class '__main__.Child'&gt;,
+ &lt;class '__main__.Father'&gt;,
+ &lt;class '__main__.Mother'&gt;,
+ &lt;class '__main__.Person'&gt;,
+ &lt;class 'object'&gt;)
+</pre>
+<p>Each class has the following string representation:</p>
+<pre>person = Person()
+dad = Father()
+mom = Mother()
+child = Child()
+
+print(person)
+print(dad)
+print(mom)
+print(child)
+</pre>
+<p>Output:</p>
+<pre>I am a person
+I am a person and cool daddy
+I am a person and awesome mom
+I am the coolest kid
+</pre>
+<p>You should use inheritance here, so the <em>I am a person</em> substring should only occur in the <code>Person</code> base class.</p>
+<p>Good luck and keep calm and code in Python!</p>

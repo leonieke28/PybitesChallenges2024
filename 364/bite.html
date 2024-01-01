@@ -1,0 +1,22 @@
+<p>Lorem Ipsum is text used to demonstrate layout in documents (such as web&nbsp;pages) without distracting reviewers with real content.</p>
+<p><a href="https://en.wikipedia.org/wiki/Lorem_ipsum" target="_blank" rel="noopener">This article</a>&nbsp;describes&nbsp;it nicely. Innovative developers have made a number of different&nbsp;lorem ipsum generators to mix it up a little, using themes like bacon or&nbsp;pirates.&nbsp;</p>
+<p>Let's create our own theme!&nbsp;</p>
+<p>In this bite, we want to create lorem ipsum text using words we scrape from a Wikipedia featured article of the day&nbsp;<span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">using</span><span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">&nbsp;</span><a style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank" rel="noopener">BeautifulSoup</a>.</p>
+<p>We don't use a live page - we work with static copy, so we can reliably test the code.&nbsp;</p>
+<p>Once we get the text of the article, we'll split the text into lower case words, removing all punctuation. Do not store empty strings if your algorithm extracts any from the article.</p>
+<p>For instance, when we scrape the article from January 1, 2020, the text starts like this:&nbsp;</p>
+<pre>The black-and-red broadbill (Cymbirhynchus macrorhynchos) is a bird</pre>
+<p>We would extract this list of words from this snippet of the text:</p>
+<pre>['the', 'black', 'and', 'red', 'broadbill', 'cymbirhynchus', 'macrorhynchos', 'is', 'a','bird']&nbsp;</pre>
+<p>Note how black-and-red became three words without the dashes.&nbsp;</p>
+<p>Word boundaries for this bite include dashes and spaces.</p>
+<p>In my solution, where the text included duplicates or words, I only kept one of them in my word list&nbsp;but the tests will pass fine with duplicates. It just means the results will bias towards the duplicated words.</p>
+<p>The function accepts a number of sentences to return, defaulting to 5. You should return this many sentences,&nbsp;each of them being nonsense text created using randomly chosen words from the list extracted from the Wikipedia article.&nbsp;</p>
+<p>Make sure the sentences are well-formed, that is with an uppercase letter at the start of each sentence&nbsp;and a period and space at the end of each-just like all the sentences in this description.</p>
+<p>If the function is called with &lt; 1 for the number of sentences, raise a <code>ValueError</code>.</p>
+<p>While not part of the Bite, a great next step would be to allow a date argument and use this to choose the article from which to grab those words.</p>
+<p><strong>HINT:</strong> BeautifulSoup takes in a parameter to tell it what type of parser to use. I suggest using <code>html.parser</code>.</p>
+<p>If you want an example, <code>wiki_lorem_ipsum(5)</code> might return:</p>
+<p><em>On a slightly slightly slightly egg usually bird mollusks conspicuous songbird deforestation range season. Twentyone hunting as full disturbed crustaceans breeds they neckband it iucn smaller songbird threatened. Population only they songbird forests season songbird are black nest has range or. Asian runt population twentyone smaller extensive trapping on three range sometimes insects females dry. Than it songbird three secondary it macrorhynchos black hunting hatching its underparts but.</em></p>
+<p>Nice nonsense? I hope so!&nbsp;</p>
+<p>Keep calm and code in Python!</p>

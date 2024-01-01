@@ -1,0 +1,31 @@
+<p>In this Bite you make a generator of rhombus shapes. You will complete <code>gen_rhombus</code> that when called like this:</p>
+<pre>  gen = gen_rhombus(5)  # gen_rhombus is a generator
+  for row in gen:
+      print(row)
+</pre>
+<p><br />... will generate the following output:</p>
+<pre>  *
+ ***
+*****
+ ***
+  *
+</pre>
+<p>When called with a greater width (you only have to worry about uneven widths for this exercise):</p>
+<pre>  gen = gen_rhombus(11)
+  for row in gen:
+      print(row)
+</pre>
+<p><br />... the output would be:</p>
+<pre>     *
+    ***
+   *****
+  *******
+ *********
+***********
+ *********
+  *******
+   *****
+    ***
+     *
+</pre>
+<p>So the middle row is always equal to the <code>width</code> passed in. Checkout how <code>format</code> or <code>f-strings</code> can help you here, as well as the <code>range</code> builtin. Have fun!</p>

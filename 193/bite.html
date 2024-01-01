@@ -1,0 +1,4 @@
+<p>In this Bite you parse a copy of <a href="https://stackoverflow.com/questions/tagged/python?sort=frequent&amp;pageSize=15" target="_blank" rel="noopener">StackOverflow Python questions</a> which we cached <a href="https://bites-data.s3.us-east-2.amazonaws.com/so_python.html" target="_blank" rel="noopener">here</a></p>
+<p>Retrieve + parse this URL with <code>requests</code> + <code>BeautifulSoup</code> and extract the question (<em>question-hyperlink</em> class), votes (<em>vote-count-post</em> class) and number of views (<em>views</em> class) into a <code>list</code>.</p>
+<p>Next filter the list to only show questions with more than one million views (HTML = "..m views") and sort the remaining questions descending on number of votes. See the tests for the expected return output. Some pretty good questions in that list!</p>
+<p>Enjoy and code more Python!</p>

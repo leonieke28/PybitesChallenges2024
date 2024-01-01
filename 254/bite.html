@@ -1,0 +1,17 @@
+<p>This Bite is to illustrate scoping. You will sum numbers while keeping track of number of hundreds in a <em>global</em> variable called <code>num_hundreds</code>.</p>
+<p>To illustrate this see this REPL output:</p>
+<pre>&gt;&gt;&gt; from scoping import sum_numbers, num_hundreds
+&gt;&gt;&gt; num_hundreds
+-1
+&gt;&gt;&gt; sum_numbers([10, 20, 70])
+100
+&gt;&gt;&gt; from scoping import num_hundreds
+&gt;&gt;&gt; num_hundreds
+0
+&gt;&gt;&gt; sum_numbers([10, 120, 180])
+310
+&gt;&gt;&gt; from scoping import num_hundreds
+&gt;&gt;&gt; num_hundreds
+3
+</pre>
+<p>We planned to also illustrate <code>nonlocal</code>, but we will do that in a separate Bite ... Good luck and keep calm and code in Python!</p>
