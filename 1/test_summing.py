@@ -1,5 +1,3 @@
-import inspect
-
 from summing import sum_numbers
 
 
