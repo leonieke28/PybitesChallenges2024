@@ -1,20 +1,22 @@
 import random
 
-BITES = {6: 'PyBites Die Hard',
-         7: 'Parsing dates from logs',
-         9: 'Palindromes',
-         10: 'Practice exceptions',
-         11: 'Enrich a class with dunder methods',
-         12: 'Write a user validation function',
-         13: 'Convert dict in namedtuple/json',
-         14: 'Generate a table of n sequences',
-         15: 'Enumerate 2 sequences',
-         16: 'Special PyBites date generator',
-         17: 'Form teams from a group of friends',
-         18: 'Find the most common word',
-         19: 'Write a simple property',
-         20: 'Write a context manager',
-         21: 'Query a nested data structure'}
+BITES = {
+    6: "PyBites Die Hard",
+    7: "Parsing dates from logs",
+    9: "Palindromes",
+    10: "Practice exceptions",
+    11: "Enrich a class with dunder methods",
+    12: "Write a user validation function",
+    13: "Convert dict in namedtuple/json",
+    14: "Generate a table of n sequences",
+    15: "Enumerate 2 sequences",
+    16: "Special PyBites date generator",
+    17: "Form teams from a group of friends",
+    18: "Find the most common word",
+    19: "Write a simple property",
+    20: "Write a context manager",
+    21: "Query a nested data structure",
+}
 BITES_DONE = {6, 10, 16, 18, 21}
 
 
@@ -23,7 +25,6 @@ class NoBitesAvailable(Exception):
 
 
 class Promo:
-
     def __init__(self):
         # updated Bite to make local copies (avoid globals!)
         self.all_bites = BITES.copy()
@@ -31,10 +32,17 @@ class Promo:
 
     def _pick_random_bite(self):
         """Pick a random Bite that is not done yet, if all
-           Bites are done, raise a NoBitesAvailable exception"""
-        pass
+        Bites are done, raise a NoBitesAvailable exception"""
+        available_bites = [
+            bite for bite in self.all_bites if bite not in self.bites_done
+        ]
+        if not available_bites:
+            raise NoBitesAvailable
+        return random.choice(available_bites)
 
     def new_bite(self):
         """Get  a random Bite using _pick_random_bite,
-           add it to self.bites_done, then return it"""
-        pass
+        add it to self.bites_done, then return it"""
+        new_bite = self._pick_random_bite()
+        self.bites_done.add(new_bite)
+        return new_bite
