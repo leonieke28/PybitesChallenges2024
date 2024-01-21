@@ -21,10 +21,9 @@ EXCLUDE_BITES = {6, 10, 16, 18, 21}
 
 
 def filter_bites(
-    bites: Dict[int, str] = DEFAULT_BITES,
-    bites_done: Set[int] = EXCLUDE_BITES
+    bites: Dict[int, str] = DEFAULT_BITES, bites_done: Set[int] = EXCLUDE_BITES
 ) -> Dict[int, str]:
     """
     Return the bites dict with bites_done filtered out.
     """
-    pass
+    return {k: v for k, v in bites.items() if k not in bites_done}
