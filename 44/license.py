@@ -1,4 +1,5 @@
-# use one or more Standard Library modules
+import secrets
+import string
 
 
 def gen_key(parts: int = 4, chars_per_part: int = 8) -> str:
@@ -12,4 +13,9 @@ def gen_key(parts: int = 4, chars_per_part: int = 8) -> str:
     If parts = 3 and chars_per_part = 4 a random license
     key would look like this: 54N8-I70K-2JZ7
     """
-    pass
+    characters = string.ascii_uppercase + string.digits
+    key = "-".join(
+        "".join(secrets.choice(characters) for _ in range(chars_per_part))
+        for _ in range(parts)
+    )
+    return key
