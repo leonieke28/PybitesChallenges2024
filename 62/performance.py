@@ -1,20 +1,23 @@
 from functools import wraps
 from time import time
 from typing import Deque, List, Set, Generator
+from collections import deque
 
 
 def timing(f):
     """A simple timer decorator to print the elapsed time of
-       the execution of the function it wraps.
-       Returns (timing, result) tuple"""
+    the execution of the function it wraps.
+    Returns (timing, result) tuple"""
+
     @wraps(f)
     def wrapper(*args, **kwargs):
         start = time()
         result = f(*args, **kwargs)
         end = time()
         duration = end - start
-        print(f'Elapsed time {f.__name__}: {duration}')
+        print(f"Elapsed time {f.__name__}: {duration}")
         return duration, result
+
     return wrapper
 
 
@@ -28,7 +31,7 @@ def contains(sequence: List[int], num: int) -> bool:
 
 @timing
 def contains_fast(sequence: Set[int], num: int) -> bool:
-    pass
+    return num in sequence
 
 
 @timing
@@ -38,12 +41,12 @@ def ordered_list_max(sequence: List[int]) -> int:
 
 @timing
 def ordered_list_max_fast(sequence: List[int]) -> int:
-    pass
+    return sequence[-1]
 
 
 @timing
 def list_concat(sequence: List[str]) -> str:
-    bigstr = ''
+    bigstr = ""
     for i in sequence:
         bigstr += str(i)
     return bigstr
@@ -51,7 +54,7 @@ def list_concat(sequence: List[str]) -> str:
 
 @timing
 def list_concat_fast(sequence: List[str]) -> str:
-    pass
+    return "".join(sequence)
 
 
 @timing
@@ -64,7 +67,10 @@ def list_inserts(n: int) -> List[int]:
 
 @timing
 def list_inserts_fast(n: int) -> Deque[int]:
-    pass
+    lst = deque()
+    for i in range(n):
+        lst.appendleft(i)
+    return lst
 
 
 @timing
@@ -77,4 +83,4 @@ def list_creation(n: int) -> List[int]:
 
 @timing
 def list_creation_fast(n: int) -> Generator[int, None, None]:
-    pass
+    return (i for i in range(n))
