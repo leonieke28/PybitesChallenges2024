@@ -4,11 +4,10 @@ import urllib.request
 
 # PREWORK
 TMP = os.getenv("TMP", "/tmp")
-DICT = 'dictionary.txt'
+DICT = "dictionary.txt"
 DICTIONARY = os.path.join(TMP, DICT)
 urllib.request.urlretrieve(
-    f'https://bites-data.s3.us-east-2.amazonaws.com/{DICT}',
-    DICTIONARY
+    f"https://bites-data.s3.us-east-2.amazonaws.com/{DICT}", DICTIONARY
 )
 
 with open(DICTIONARY) as f:
@@ -17,11 +16,17 @@ with open(DICTIONARY) as f:
 
 def get_possible_dict_words(draw):
     """Get all possible words from a draw (list of letters) which are
-       valid dictionary words. Use _get_permutations_draw and provided
-       dictionary"""
-    pass
+    valid dictionary words. Use _get_permutations_draw and provided
+    dictionary"""
+    return set(
+        word.lower()
+        for word in _get_permutations_draw(draw)
+        if word.lower() in dictionary
+    )
+
 
 def _get_permutations_draw(draw):
     """Helper to get all permutations of a draw (list of letters), hint:
-       use itertools.permutations (order of letters matters)"""
-    pass
+    use itertools.permutations (order of letters matters)"""
+    for i in range(1, len(draw) + 1):
+        yield from map("".join, itertools.permutations(draw, i))
